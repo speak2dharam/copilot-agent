@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background: #f2f2f2;
+        }
+
+        .switch {
+            position: relative;
+            width: 70px;
+            height: 34px;
+            background: #ccc;
+            border-radius: 34px;
+            cursor: pointer;
+            transition: background 0.3s;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+        }
+
+            .switch:before {
+                content: "";
+                position: absolute;
+                top: 3px;
+                left: 3px;
+                width: 28px;
+                height: 28px;
+                background: white;
+                border-radius: 50%;
+                transition: transform 0.3s;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+            }
+
+            .switch.on {
+                background: #4caf50;
+            }
+
+                .switch.on:before {
+                    transform: translateX(36px);
+                }
+
+        .status {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="switch" id="mySwitch"></div>
+    <div class="status" id="statusText">Switch is OFF</div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    $(document).ready(function () {
+      $("#mySwitch").click(function () {
+        $(this).toggleClass("on");
+        if ($(this).hasClass("on")) {
+          $("#statusText").text("Switch is ON");
+        } else {
+          $("#statusText").text("Switch is OFF");
+        }
+      });
+    });
+    </script>
+</body>
+</html>
