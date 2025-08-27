@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
+    <title>Copilot Agent Estimator</title>
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
 
     <link href="assets/css/icofont.css" rel="stylesheet" />
@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="col-md-7">
-                            <div class="bg-white shadow rounded-3 border p-3">
+                            <div class="bg-white shadow rounded-3 border p-3 h-100">
                                 <div class="mb-4">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="d-flex align-items-center mb-3">
@@ -108,8 +108,130 @@
                                         </div>
                                     </div>
                                     <hr />
+                                    <div>
+                                        <h5>Agent type</h5>
+                                        <p>Agent type specifies whether the agent is deployed internally for employee interactions or externally for customer and partner conversations. Deployment location impacts usage trends, aiding in accurate consumption forecasting. </p>
+                                        <strong class="text-body-secondary">What is your agent type? </strong>
+                                        <div class="d-flex mt-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                                <label class="form-check-label" for="radioDefault1">
+                                                    Employee-facing agent
+                                                </label>
+                                            </div>
+                                            <div class="form-check ms-3">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                                                <label class="form-check-label" for="radioDefault2">
+                                                    Customer or partner-facing agent
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <div class="row g-3">
+                                                <div class="col-md">
+                                                    <strong class="text-body-secondary">Do you have users with M365 Copilot licenses?  </strong>
+                                                    <div class="d-flex mt-3">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                                            <label class="form-check-label" for="radioDefault1">
+                                                                Yes
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check ms-3">
+                                                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                                                            <label class="form-check-label" for="radioDefault2">
+                                                                No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md">
+                                                    <div class="">
+                                                        <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">How many users with M365 Copilot license?</label>
+                                                        <input type="number" class="form-control form-control-sm" placeholder="e.g. 100" name="name" value="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <h5>Agent orchestration</h5>
+                                        <p>Orchestration involves managing and coordinating an agent's capabilities and actions to effectively respond to user queries and perform tasks. </p>
+                                        <strong class="text-body-secondary">What type of orchestration will you require?</strong>
+                                        <div class="d-flex mt-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                                <label class="form-check-label" for="radioDefault1">
+                                                    Generative
+                                                </label>
+                                            </div>
+                                            <div class="form-check ms-3">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                                                <label class="form-check-label" for="radioDefault2">
+                                                    Classic
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <h5>Agent knowledge</h5>
+                                        <p>Knowledge sources enable agents to provide relevant information and insights. Published agents use configured knowledge sources to ground their responses.</p>
+                                        <div class="">
+                                            <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">On average, how many times per month will your users interact with your agent? </label>
+                                            <input type="number" class="form-control form-control-sm" placeholder="e.g. 50" disabled name="name" value="" />
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <h5>Agent actions and topics</h5>
+                                        <p>Help agents answer a query, execute workflows, connect to external systems, or provide topic-specific guidance.</p>
+                                        <strong class="text-body-secondary">
+                                            Percentage of consumption from topics
+                                        </strong>
+                                        <div class="mb-3">
+                                            <span class="fs-4 fw-bold text-info">
+                                                100%
+                                            </span>
+                                        </div>
+                                        <div class="row g-3 align-items-baseline">
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">How many agent flows have you configured for your agent (either within a topic or standalone agent action)?</label>
+                                                    <input type="number" class="form-control form-control-sm" placeholder="e.g. 2" name="name" value="" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">How often will these flows run per month?</label>
+                                                    <input type="number" class="form-control form-control-sm" placeholder="e.g. 2" name="name" value="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <h5>Agent Optional Modifiers</h5>
+                                        <p>These features are not required for agents but drive additional message consumption</p>
+                                        <strong class="text-body-secondary">Will you use prompt tools?</strong>
+                                        <div class="d-flex mt-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                                <label class="form-check-label" for="radioDefault1">
+                                                    Yes
+                                                </label>
+                                            </div>
+                                            <div class="form-check ms-3">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                                                <label class="form-check-label" for="radioDefault2">
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
+                                <div class="d-none">
                                     <div class="row g-4">
                                         <div class="col-md-6">
                                             <div class="">
@@ -168,7 +290,7 @@
                             </div>
                         </div>
                         <div class="col-md">
-                            <div class="bg-white shadow rounded-3 border p-3">
+                            <div class="bg-white shadow rounded-3 border p-3 h-100">
                                 <div class="d-flex align-items-center justify-content-between">
                                     <h5 class="mb-0">Total estimated messages</h5>
                                     <span class="h5 ms-2 text-info">480,073.52</span>
@@ -260,6 +382,13 @@
 
                                 </div>
                                 <hr />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mt-4">
+                                <p class="text-body-secondary">
+                                    The Copilot Studio estimator is not a binding offer nor a guarantee of the final cost or availability of the product. This estimate should be regarded only as guidance and not incorporated into a contractual agreement. The actual amount of message consumption and associated cost may vary depending on the region, availability, workload usage, number of users, and other factors. You may contact your UnifyCloud representative before making any customer recommendations or purchase decisions. UnifyCloud reserves the right to modify or discontinue the Copilot Studio estimator at any time without notice.
+                                </p>
                             </div>
                         </div>
                     </div>
