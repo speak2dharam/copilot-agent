@@ -1,0 +1,20 @@
+﻿@media (max-width: 991.98px) {
+    .sidebar {
+        display: none;
+        position: absolute !important;
+        width: 219px;
+    }
+    .mobileMenuCtrl {
+        display: block;
+    }
+    .contentArea {
+        width: 100%;
+        padding: 0 4px;
+    }
+}
+@media (max-width: 575.98px) {
+    /* Styles for phones only */
+    .logoBox a {
+        font-size: 13px;
+    }
+}
