@@ -25,12 +25,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md">
+                    <!--<div class="col-md">
                         <div class="d-flex align-items-center justify-content-end">
                             <a href="#" class="rounded-pill px-3 py-1 bg-white text-dark"><i class="icofont-question"></i> How the Calculator Works</a>
                             <a href="#" class="rounded-pill px-3 py-1 bg-white text-dark ms-2"><i class="icofont-book"></i> FREE Copilot Prompting Course</a>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -53,46 +53,59 @@
             </div>
             <div class="pb-5">
                 <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-6">
-                            <div class="mb-2">
+                    <div class="row justify-content-center g-3">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center">
+                                <div class="switch" id="mySwitch"></div>
+                                <span class="fs-6 text-white ms-2 fw-bold">See calculator 2</span>
+                                <!--<div class="status text-white" id="statusText">Switch is OFF</div>-->
+                            </div>
+                            <!--<div class="">
+                                <a href="roi-calculator.html" class="ripple-btn">Copilot ROI Calculator <i class="icofont-arrow-right"></i></a>
+                            </div>-->
+                        </div>
+                        <div class="col-3">
+                            <div class="text-end">
                                 <p class="text-white mb-0">1 Message = $.01</p>
                                 <p class="mb-0 text-white">Go <a class="text-white" href="https://microsoft.github.io/copilot-studio-estimator/#:~:text=Go%20here%20to%20convert%20to%20your%20currency." target="_blank"><u>here</u></a> to convert to your currency.</p>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="text-end">
-                                <a href="roi-calculator.html" class="ripple-btn">Copilot ROI Calculator <i class="icofont-arrow-right"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="bg-white shadow rounded-3 border p-3 h-100">
-                                <div class="mb-4">
-                                    <div class="d-flex justify-content-between align-items-start">
-                                        <div class="d-flex align-items-center mb-3">
-                                            <img src="assets/img/icons/contrast-adjustment.png" height="40" />
-                                            <div class="ms-2">
-                                                <h5 class="mb-0 text-body-secondary">Estimator type</h5>
-                                                <p class="mb-0 text-body-secondary">Configure monthly agent message estimation in two ways</p>
-                                            </div>
-                                        </div>
-                                        <a href="#" class="ripple-btn"><i class="icofont-refresh"></i> Reset</a>
-                                    </div>
-                                    <div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
-                                            <label class="form-check-label" for="radioDefault1">
-                                                An estimate based on common telemetry data and assumptions
-                                            </label>
-                                        </div>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked>
-                                            <label class="form-check-label" for="radioDefault2">
-                                                An estimate based on manual entries for my agent
-                                            </label>
+                        <div class="col-md-9">
+                            <div class="stepBox" id="stepBox_1_1" style="">
+                                <div class="bg-white shadow rounded-3 border p-3">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h4 class="mb-0 text-body-secondary">Copilot ROI Calculator</h4>
+                                        <div class="d-flex align-items-center">
+                                            <a href="#" class="py-2 btn btn-dark btn-sm rounded-2"><i class="icofont-refresh"></i> Reset</a>
+                                            <a href="javascript:void()" onclick="calc1(1,2)" class="ripple-btn py-2 ms-2 rounded-2 shadow-none">Next&nbsp; <i class="icofont-arrow-right"></i></a>
                                         </div>
                                     </div>
                                     <hr />
+                                    <div class="mb-4">
+                                        <div>
+                                            <div class="mb-3">
+                                                <h5 class="mb-0 text-body-secondary">Estimator type</h5>
+                                                <p class="mb-0 text-body-secondary">Configure monthly agent message estimation in two ways</p>
+                                            </div>
+                                            <div class="d-flex">
+                                                <div class="form-check me-3">
+                                                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                                    <label class="form-check-label" for="radioDefault1">
+                                                        An estimate based on common telemetry data and assumptions
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked>
+                                                    <label class="form-check-label" for="radioDefault2">
+                                                        An estimate based on manual entries for my agent
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--222-->
+                                <div class="bg-white shadow rounded-3 border p-3 mt-3">
                                     <div>
                                         <h5>Agent traffic</h5>
                                         <p>Agent traffic quantifies the activity an agent supports by assessing the number of end users accessing the agent and their monthly engagement frequency</p>
@@ -112,7 +125,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr />
+                                </div>
+                                <div class="bg-white shadow rounded-3 border p-3 mt-3">
                                     <div>
                                         <h5>Agent type</h5>
                                         <p>Agent type specifies whether the agent is deployed internally for employee interactions or externally for customer and partner conversations. Deployment location impacts usage trends, aiding in accurate consumption forecasting. </p>
@@ -159,7 +173,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr />
+                                </div>
+                                <div class="bg-white shadow rounded-3 border p-3 mt-3">
                                     <div>
                                         <h5>Agent orchestration</h5>
                                         <p>Orchestration involves managing and coordinating an agent's capabilities and actions to effectively respond to user queries and perform tasks. </p>
@@ -179,7 +194,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr />
+                                </div>
+                                <div class="bg-white shadow rounded-3 border p-3 mt-3">
                                     <div>
                                         <h5>Agent knowledge</h5>
                                         <p>Knowledge sources enable agents to provide relevant information and insights. Published agents use configured knowledge sources to ground their responses.</p>
@@ -188,7 +204,8 @@
                                             <input type="number" class="form-control form-control-sm" placeholder="e.g. 50" disabled name="name" value="" />
                                         </div>
                                     </div>
-                                    <hr />
+                                </div>
+                                <div class="bg-white shadow rounded-3 border p-3 mt-3">
                                     <div>
                                         <h5>Agent actions and topics</h5>
                                         <p>Help agents answer a query, execute workflows, connect to external systems, or provide topic-specific guidance.</p>
@@ -215,7 +232,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <hr />
+                                </div>
+                                <div class="bg-white shadow rounded-3 border p-3 mt-3">
                                     <div>
                                         <h5>Agent Optional Modifiers</h5>
                                         <p>These features are not required for agents but drive additional message consumption</p>
@@ -236,164 +254,311 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="d-none">
-                                    <div class="row g-4">
-                                        <div class="col-md-6">
-                                            <div class="">
-                                                <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">Currency</label>
-                                                <select class="form-select-sm form-select">
-                                                    <option>USD $</option>
-                                                </select>
-                                            </div>
+                                <div class="clearfix"></div>
+                                <div class="mt-4 text-center">
+                                    <a  href="javascript:void()" onclick="calc1(1,2)" class="ripple-btn">Calculate <i class="icofont-arrow-right"></i></a>
+                                </div>
+                                <!--end-->
+                            </div>
+                            <div class="stepBox" id="stepBox_1_2" style="display:none">
+                                <div class="bg-white shadow rounded-3 border p-3 h-100">
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h4 class="mb-0 text-body-secondary">Copilot ROI Calculator</h4>
+                                        <div class="d-flex align-items-center">
+                                            <a href="#" class="btn btn-link text-dark text-decoration-none text-body-secondary btn-sm py-2 ms-2 rounded-0 shadow-none"> <i class="icofont-download"></i> Export Estimate</a>
+                                            <a href="#" class="border-start btn btn-link text-dark text-decoration-none text-body-secondary btn-sm py-2 ms-2 rounded-0 shadow-none"> <i class="icofont-settings"></i> Save Configuration</a>
+                                            <a href="javascript:void()" onclick="calc1(1,1)" class="ripple-btn py-2 ms-2 rounded-2 shadow-none"> <i class="icofont-arrow-left"></i> Back</a>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="">
-                                                <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">Average Annual Salary</label>
-                                                <div class="input-group input-group-sm">
-                                                    <span class="input-group-text" id="basic-addon1">$</span>
-                                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-                                                </div>
-                                            </div>
+                                    </div>
+                                    <hr />
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <h5 class="mb-0">Total estimated messages</h5>
+                                        <span class="h5 ms-2 text-info">480,073.52</span>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <h6 class="mb-0 ">Messages driven by knowledge</h6>
+                                            <span class="h6 text-info ms-2">
+                                                105,000
+                                            </span>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div>
-                                                <div class="mb-1 d-flex align-items-center justify-content-between">
-                                                    <label for="customRange4" class="form-label mb-0 fw-bold text-body-secondary">Number of Users</label>
-                                                    <output for="customRange4" id="rangeValue" class=" fw-bold text-body-secondary" aria-hidden="true"></output>
-                                                </div>
-                                                <input type="range" class="form-range" min="0" max="100" value="50" id="customRange4">
-                                            </div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <p class="mb-0 text-body-secondary">Messages consumed for tenant graph grounding (10 messages) + generative answers (2 messages)</p>
+                                            <span class="h6 text-dark ms-2">90,000</span>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div class="">
-                                                <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">Percentage of Work that is Repetitive</label>
-                                                <select class="form-select-sm form-select">
-                                                    <option>Medium (40%)</option>
-                                                </select>
-                                            </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <p class="mb-0 text-body-secondary">Messages consumed for non-tenant graph grounding (2 messages): Dataverse, web, files</p>
+                                            <span class="h6 text-dark ms-2">
+                                                15,000
+                                            </span>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div>
-                                                <div class="mb-1 d-flex align-items-center justify-content-between">
-                                                    <label for="customRange3" class="form-label mb-0 fw-bold text-body-secondary">Hours Saved Per Week</label>
-                                                    <span class="fw-bold text-body-secondary"><output for="customRange3" id="rangeValue3" aria-hidden="true"></output> hours</span>
-                                                </div>
-                                                <input type="range" class="form-range" min="0" max="10" step="0.5" value="7" id="customRange3">
-                                            </div>
+
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <h6 class="mb-0 ">Messages driven by actions and topics</h6>
+                                            <span class="h6 text-info ms-2">375,006.76</span>
                                         </div>
-                                        <div class="col-md-6">
-                                            <div>
-                                                <div class="mb-1 d-flex align-items-center justify-content-between">
-                                                    <label for="customRange5" class="form-label mb-0 fw-bold text-body-secondary">Time Reinvested into Productive Work</label>
-                                                    <span class="fw-bold text-body-secondary"><output for="customRange5" id="rangeValue5" aria-hidden="true"></output> %</span>
-                                                </div>
-                                                <input type="range" class="form-range" min="0" max="100" step="5" value="25" id="customRange5">
-                                            </div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <p class="mb-0 text-body-secondary">
+                                                Number of messages that charge for actions and topics
+                                            </p>
+                                            <span class="h6 text-dark ms-2">375,000</span>
                                         </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <p class="mb-0 text-body-secondary">Number of messages that charge for agent flows</p>
+                                            <span class="h6 text-dark ms-2">6.76</span>
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <h6 class="mb-0 ">Messages driven by agent autonomous triggers</h6>
+                                            <span class="h6 text-info ms-2">
+                                                66.76
+                                            </span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <p class="mb-0 text-body-secondary">Number of messages that charge trigger 1</p>
+                                            <span class="h6 text-dark ms-2">66.76</span>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <h6 class="mb-0 ">Messages driven by optional modifiers</h6>
+                                            <span class="h6 text-info ms-2">0</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <h6 class="mb-0 ">Basic GPT-4o mini</h6>
+                                            <span class="h6 text-dark ms-2">0</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <p class="mb-0 text-body-secondary">
+                                                1 message per every 10 responses
+                                            </p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <h6 class="mb-0 ">Standard GPT-4o</h6>
+                                            <span class="h6 text-dark ms-2">0</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <p class="mb-0 text-body-secondary">
+                                                15 messages per every 10 responses
+                                            </p>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <h6 class="mb-0 ">Premium GPT-o1</h6>
+                                            <span class="h6 text-dark ms-2">0</span>
+                                        </div>
+                                        <div class="d-flex align-items-center justify-content-between mb-2">
+                                            <p class="mb-0 text-body-secondary">
+                                                100 messages per every 10 responses
+                                            </p>
+                                        </div>
+
+                                    </div>
+                                    <hr />
+                                    <div class="text-center">
+                                        <a  href="javascript:void()" onclick="calc1(1,1)" class="ripple-btn py-2 ms-2 rounded-2 shadow-none"> <i class="icofont-arrow-left"></i> Back</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md">
-                            <div class="bg-white shadow rounded-3 border p-3 h-100">
-                                <div class="d-flex align-items-center justify-content-between">
-                                    <h5 class="mb-0">Total estimated messages</h5>
-                                    <span class="h5 ms-2 text-info">480,073.52</span>
+
+                            <div class="stepBox" id="stepBox_2_1" style="display:none;">
+                                <div class="bg-white shadow rounded-3 border p-3">
+                                    <div class="mb-4">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <img src="assets/img/icons/contrast-adjustment.png" height="40" />
+                                                <div class="ms-2">
+                                                    <h5 class="mb-0 text-body-secondary">Input Parameters</h5>
+                                                    <p class="mb-0 text-body-secondary">Adjust the values to calculate your potential ROI</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="">
+                                            <div class="row g-4">
+                                                <div class="col-md-6">
+                                                    <div class="">
+                                                        <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">Currency</label>
+                                                        <select class="form-select-sm form-select">
+                                                            <option>USD $</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="">
+                                                        <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">Average Annual Salary</label>
+                                                        <div class="input-group input-group-sm">
+                                                            <span class="input-group-text" id="basic-addon1">$</span>
+                                                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div>
+                                                        <div class="mb-1 d-flex align-items-center justify-content-between">
+                                                            <label for="customRange4" class="form-label mb-0 fw-bold text-body-secondary">Number of Users</label>
+                                                            <output for="customRange4" id="rangeValue" class=" fw-bold text-body-secondary" aria-hidden="true"></output>
+                                                        </div>
+                                                        <input type="range" class="form-range" min="0" max="100" value="50" id="customRange4">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="">
+                                                        <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">Percentage of Work that is Repetitive</label>
+                                                        <select class="form-select-sm form-select">
+                                                            <option>Medium (40%)</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div>
+                                                        <div class="mb-1 d-flex align-items-center justify-content-between">
+                                                            <label for="customRange3" class="form-label mb-0 fw-bold text-body-secondary">Hours Saved Per Week</label>
+                                                            <span class="fw-bold text-body-secondary"><output for="customRange3" id="rangeValue3" aria-hidden="true"></output> hours</span>
+                                                        </div>
+                                                        <input type="range" class="form-range" min="0" max="10" step="0.5" value="7" id="customRange3">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div>
+                                                        <div class="mb-1 d-flex align-items-center justify-content-between">
+                                                            <label for="customRange5" class="form-label mb-0 fw-bold text-body-secondary">Time Reinvested into Productive Work</label>
+                                                            <span class="fw-bold text-body-secondary"><output for="customRange5" id="rangeValue5" aria-hidden="true"></output> %</span>
+                                                        </div>
+                                                        <input type="range" class="form-range" min="0" max="100" step="5" value="25" id="customRange5">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                                <hr />
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <h6 class="mb-0 ">Messages driven by knowledge</h6>
-                                        <span class="h6 text-info ms-2">
-                                            105,000
-                                        </span>
+                                <div class="bg-white shadow rounded-3 border p-3 mt-4">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <img src="assets/img/icons/contrast-adjustment.png" height="40" />
+                                            <div class="ms-2">
+                                                <h5 class="mb-0 text-body-secondary">ROI Analysis</h5>
+                                                <p class="mb-0 text-body-secondary">Based on your inputs, here's your potential return on investment</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <p class="mb-0 text-body-secondary">Messages consumed for tenant graph grounding (10 messages) + generative answers (2 messages)</p>
-                                        <span class="h6 text-dark ms-2">90,000</span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <p class="mb-0 text-body-secondary">Messages consumed for non-tenant graph grounding (2 messages): Dataverse, web, files</p>
-                                        <span class="h6 text-dark ms-2">
-                                            15,000
-                                        </span>
+                                    <div>
+                                        <div class="row align-items-center">
+                                            <div class="col-md">
+                                                <div class="mb-3">
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <strong class="text-body-secondary">Annual License Cost</strong>
+                                                        <span class="fs-5 fw-bold text-dark">$36,000</span>
+                                                    </div>
+                                                    <p class="mb-0 text-body-tertiary">100 users × $30.00 per user per month × 12 months</p>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <strong class="text-body-secondary">Annual Time Savings Value</strong>
+                                                        <span class="fs-5 fw-bold text-success">$300,000</span>
+                                                    </div>
+                                                    <p class="mb-2 text-body-tertiary">Based on 2 hours saved per week per user with 80% reinvested in productive work</p>
+                                                    <p class="mb-0 text-body-tertiary">($39 per hour × 9600 total hours × 80% reinvestment)</p>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <strong class="text-body-secondary">Productivity Improvement</strong>
+                                                        <span class="fs-5 fw-bold text-success">5.0%</span>
+                                                    </div>
+                                                    <p class="mb-0 text-body-tertiary">200 hours saved weekly across 100 employees</p>
+                                                </div>
+                                                <div class="bg-info rounded-3 bg-opacity-25 px-2 py-3">
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <strong class="text-body-secondary fs-6">Return on Investment</strong>
+                                                        <span class="fs-5 fw-bold text-success">733%</span>
+                                                    </div>
+                                                    <div class="progress my-2" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                                                        <div class="progress-bar bg-info" style="width: 50%"></div>
+                                                    </div>
+                                                    <p class="mb-0 text-body-tertiary">For every $1 spent on Copilot, you get approximately $8.33 in return.</p>
+                                                </div>
+                                            </div>
+                                            <div class="col-md">
+                                                <div class="mb-3">
+                                                    <div class="border rounded-3 bg-opacity-25 px-2 py-3">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <strong class="text-body-secondary fs-6">Employee Experience Impact</strong>
+                                                        </div>
+                                                        <div class="my-2">
+                                                            <div class="mb-1 d-flex align-items-center justify-content-between">
+                                                                <label for="customRange3" class="form-label mb-0 fw-bold text-body-tertiary">Repetitive Task Time Reduction</label>
+                                                                <span class="fw-bold text-body-secondary"><output for="customRange3" id="rangeValue3" aria-hidden="true"></output> %</span>
+                                                            </div>
+                                                            <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 15px">
+                                                                <div class="progress-bar bg-success" style="width: 25%"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="mb-0 text-body-tertiary">40% of work is repetitive × 5.0% time savings = 2.0% reduction in total work time</p>
+                                                    </div>
+                                                </div>
+                                                <div class="">
+                                                    <div class="border rounded-3 bg-opacity-25 px-2 py-3">
+                                                        <div class="d-flex align-items-center justify-content-between">
+                                                            <strong class="text-body-secondary fs-6">High-Value Work Impact</strong>
+                                                        </div>
+                                                        <div class="my-2">
+                                                            <div class="mb-1 d-flex align-items-center justify-content-between">
+                                                                <label for="customRange3" class="form-label mb-0 fw-bold text-body-tertiary">
+                                                                    Annual Hours for High-Value Work
+                                                                </label>
+                                                                <span class="fw-bold text-body-secondary"><output for="customRange3" id="rangeValue3" aria-hidden="true"></output> hours</span>
+                                                            </div>
+                                                            <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 15px">
+                                                                <div class="progress-bar bg-success" style="width: 25%"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="mb-0 text-body-tertiary">2 hours per week × 100 users × 48 weeks = 9600 hours per year</p>
+
+                                                        <div class="my-2 pt-2">
+                                                            <div class="mb-1 d-flex align-items-center justify-content-between">
+                                                                <label for="customRange3" class="form-label mb-0 fw-bold text-body-tertiary">Equivalent Workdays per Year</label>
+                                                                <span class="fw-bold text-body-secondary"><output for="customRange3" id="rangeValue3" aria-hidden="true"></output> days</span>
+                                                            </div>
+                                                            <div class="progress" role="progressbar" aria-label="Example 20px high" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="height: 15px">
+                                                                <div class="progress-bar bg-success" style="width: 25%"></div>
+                                                            </div>
+                                                        </div>
+                                                        <p class="mb-0 text-body-tertiary">96 hours ÷ 8 hours per day = 12.0 workdays</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                </div>
-                                <hr />
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <h6 class="mb-0 ">Messages driven by actions and topics</h6>
-                                        <span class="h6 text-info ms-2">375,006.76</span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <p class="mb-0 text-body-secondary">
-                                            Number of messages that charge for actions and topics
-                                        </p>
-                                        <span class="h6 text-dark ms-2">375,000</span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <p class="mb-0 text-body-secondary">Number of messages that charge for agent flows</p>
-                                        <span class="h6 text-dark ms-2">6.76</span>
-                                    </div>
-
-                                </div>
-                                <hr />
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <h6 class="mb-0 ">Messages driven by agent autonomous triggers</h6>
-                                        <span class="h6 text-info ms-2">
-                                            66.76
-                                        </span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between">
-                                        <p class="mb-0 text-body-secondary">Number of messages that charge trigger 1</p>
-                                        <span class="h6 text-dark ms-2">66.76</span>
+                                    <div class="border rounded-3 p-3 mt-4">
+                                        <h5 class="text-body-secondary mb-3">Net Annual Benefit</h5>
+                                        <div>
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <span class="text-body-secondary fs-6">Total Value</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <span class="fs-5 fw-bold text-success">$264,000</span>
+                                                </div>
+                                            </div>
+                                            <div class="row align-items-center">
+                                                <div class="col">
+                                                    <span class="text-body-secondary fs-6">Per User</span>
+                                                </div>
+                                                <div class="col-auto">
+                                                    <span class="fs-5 fw-bold text-success">$264,000</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <hr />
-                                <div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <h6 class="mb-0 ">Messages driven by optional modifiers</h6>
-                                        <span class="h6 text-info ms-2">0</span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <h6 class="mb-0 ">Basic GPT-4o mini</h6>
-                                        <span class="h6 text-dark ms-2">0</span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <p class="mb-0 text-body-secondary">
-                                            1 message per every 10 responses
-                                        </p>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <h6 class="mb-0 ">Standard GPT-4o</h6>
-                                        <span class="h6 text-dark ms-2">0</span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <p class="mb-0 text-body-secondary">
-                                            15 messages per every 10 responses
-                                        </p>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <h6 class="mb-0 ">Premium GPT-o1</h6>
-                                        <span class="h6 text-dark ms-2">0</span>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-between mb-2">
-                                        <p class="mb-0 text-body-secondary">
-                                            100 messages per every 10 responses
-                                        </p>
-                                    </div>
-
-                                </div>
-                                <hr />
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="mt-4">
-                                <p class="text-body-secondary">
-                                    The Copilot Studio estimator is not a binding offer nor a guarantee of the final cost or availability of the product. This estimate should be regarded only as guidance and not incorporated into a contractual agreement. The actual amount of message consumption and associated cost may vary depending on the region, availability, workload usage, number of users, and other factors. You may contact your UnifyCloud representative before making any customer recommendations or purchase decisions. UnifyCloud reserves the right to modify or discontinue the Copilot Studio estimator at any time without notice.
-                                </p>
                             </div>
                         </div>
                     </div>
@@ -422,7 +587,7 @@
     <!-- bootstrap@5.3.2 -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="assets/js/bootstrap.min.js"></script>
-
+    <script src="JavaScript.js?v1.01"></script>
     <!--<script src="~/content/assets/libs/datatable/datatables.min.js"></script>-->
     <!-- Buttons Extension -->
     <!--<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>-->

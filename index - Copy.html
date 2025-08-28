@@ -1,0 +1,470 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Copilot Agent Estimator</title>
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+
+    <link href="assets/css/icofont.css" rel="stylesheet" />
+    <link href="assets/css/style.css" rel="stylesheet" />
+
+    <!--<link href="~/content/assets/libs/datatable/datatables.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">-->
+</head>
+<body>
+    <section class="hero-section">
+        <div class="py-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md">
+                        <div class="d-flex align-items-center">
+                            <img src="assets/img/icons/calculator-md.png" height="30" />
+                            <div class="ms-2">
+                                <span style="font-size: 17px;font-weight: 600; color: #fff;">Copilot Agent Estimator</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="col-md">
+                        <div class="d-flex align-items-center justify-content-end">
+                            <a href="#" class="rounded-pill px-3 py-1 bg-white text-dark"><i class="icofont-question"></i> How the Calculator Works</a>
+                            <a href="#" class="rounded-pill px-3 py-1 bg-white text-dark ms-2"><i class="icofont-book"></i> FREE Copilot Prompting Course</a>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        
+                        <div class="col-8">
+                            <div class="text-center my-5">
+                                <h1 class="text-white">Welcome to the Copilot Agent Estimator</h1>
+                                <p class="text-light">
+                                    This tool helps you <strong>plan, calculate, and visualize</strong> the resources needed for Copilot Agents.
+                                    Adjust inputs, explore different scenarios, and instantly see how your setup impacts cost, performance, and efficiency.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pb-5">
+                <div class="container">
+                    <div class="row justify-content-center g-3">
+                        <div class="col-md-6">
+                            <div class="">
+                                <a href="roi-calculator.html" class="ripple-btn">Copilot ROI Calculator <i class="icofont-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="text-end">
+                                <p class="text-white mb-0">1 Message = $.01</p>
+                                <p class="mb-0 text-white">Go <a class="text-white" href="https://microsoft.github.io/copilot-studio-estimator/#:~:text=Go%20here%20to%20convert%20to%20your%20currency." target="_blank"><u>here</u></a> to convert to your currency.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="bg-white shadow rounded-3 border p-3 h-100">
+                                <div class="mb-4">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div class="d-flex align-items-center mb-3">
+                                            <img src="assets/img/icons/contrast-adjustment.png" height="40" />
+                                            <div class="ms-2">
+                                                <h5 class="mb-0 text-body-secondary">Estimator type</h5>
+                                                <p class="mb-0 text-body-secondary">Configure monthly agent message estimation in two ways</p>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="ripple-btn"><i class="icofont-refresh"></i> Reset</a>
+                                    </div>
+                                    <div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                            <label class="form-check-label" for="radioDefault1">
+                                                An estimate based on common telemetry data and assumptions
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2" checked>
+                                            <label class="form-check-label" for="radioDefault2">
+                                                An estimate based on manual entries for my agent
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <h5>Agent traffic</h5>
+                                        <p>Agent traffic quantifies the activity an agent supports by assessing the number of end users accessing the agent and their monthly engagement frequency</p>
+
+                                        <div class="row g-3 align-items-baseline">
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">How many users? </label>
+                                                    <input type="number" class="form-control form-control-sm" placeholder="e.g. 1000" name="name" value="" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">On average, how many times per month will your users interact with your agent? </label>
+                                                    <input type="number" class="form-control form-control-sm" placeholder="e.g. 30" name="name" value="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <h5>Agent type</h5>
+                                        <p>Agent type specifies whether the agent is deployed internally for employee interactions or externally for customer and partner conversations. Deployment location impacts usage trends, aiding in accurate consumption forecasting. </p>
+                                        <strong class="text-body-secondary">What is your agent type? </strong>
+                                        <div class="d-flex mt-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                                <label class="form-check-label" for="radioDefault1">
+                                                    Employee-facing agent
+                                                </label>
+                                            </div>
+                                            <div class="form-check ms-3">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                                                <label class="form-check-label" for="radioDefault2">
+                                                    Customer or partner-facing agent
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="mt-2">
+                                            <div class="row g-3">
+                                                <div class="col-md">
+                                                    <strong class="text-body-secondary">Do you have users with M365 Copilot licenses?  </strong>
+                                                    <div class="d-flex mt-3">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                                            <label class="form-check-label" for="radioDefault1">
+                                                                Yes
+                                                            </label>
+                                                        </div>
+                                                        <div class="form-check ms-3">
+                                                            <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                                                            <label class="form-check-label" for="radioDefault2">
+                                                                No
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md">
+                                                    <div class="">
+                                                        <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">How many users with M365 Copilot license?</label>
+                                                        <input type="number" class="form-control form-control-sm" placeholder="e.g. 100" name="name" value="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <h5>Agent orchestration</h5>
+                                        <p>Orchestration involves managing and coordinating an agent's capabilities and actions to effectively respond to user queries and perform tasks. </p>
+                                        <strong class="text-body-secondary">What type of orchestration will you require?</strong>
+                                        <div class="d-flex mt-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                                <label class="form-check-label" for="radioDefault1">
+                                                    Generative
+                                                </label>
+                                            </div>
+                                            <div class="form-check ms-3">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                                                <label class="form-check-label" for="radioDefault2">
+                                                    Classic
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <h5>Agent knowledge</h5>
+                                        <p>Knowledge sources enable agents to provide relevant information and insights. Published agents use configured knowledge sources to ground their responses.</p>
+                                        <div class="">
+                                            <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">On average, how many times per month will your users interact with your agent? </label>
+                                            <input type="number" class="form-control form-control-sm" placeholder="e.g. 50" disabled name="name" value="" />
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <h5>Agent actions and topics</h5>
+                                        <p>Help agents answer a query, execute workflows, connect to external systems, or provide topic-specific guidance.</p>
+                                        <strong class="text-body-secondary">
+                                            Percentage of consumption from topics
+                                        </strong>
+                                        <div class="mb-3">
+                                            <span class="fs-4 fw-bold text-info">
+                                                100%
+                                            </span>
+                                        </div>
+                                        <div class="row g-3 align-items-baseline">
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">How many agent flows have you configured for your agent (either within a topic or standalone agent action)?</label>
+                                                    <input type="number" class="form-control form-control-sm" placeholder="e.g. 2" name="name" value="" />
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="">
+                                                    <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">How often will these flows run per month?</label>
+                                                    <input type="number" class="form-control form-control-sm" placeholder="e.g. 2" name="name" value="" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <hr />
+                                    <div>
+                                        <h5>Agent Optional Modifiers</h5>
+                                        <p>These features are not required for agents but drive additional message consumption</p>
+                                        <strong class="text-body-secondary">Will you use prompt tools?</strong>
+                                        <div class="d-flex mt-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1">
+                                                <label class="form-check-label" for="radioDefault1">
+                                                    Yes
+                                                </label>
+                                            </div>
+                                            <div class="form-check ms-3">
+                                                <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                                                <label class="form-check-label" for="radioDefault2">
+                                                    No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-none">
+                                    <div class="row g-4">
+                                        <div class="col-md-6">
+                                            <div class="">
+                                                <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">Currency</label>
+                                                <select class="form-select-sm form-select">
+                                                    <option>USD $</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="">
+                                                <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">Average Annual Salary</label>
+                                                <div class="input-group input-group-sm">
+                                                    <span class="input-group-text" id="basic-addon1">$</span>
+                                                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div>
+                                                <div class="mb-1 d-flex align-items-center justify-content-between">
+                                                    <label for="customRange4" class="form-label mb-0 fw-bold text-body-secondary">Number of Users</label>
+                                                    <output for="customRange4" id="rangeValue" class=" fw-bold text-body-secondary" aria-hidden="true"></output>
+                                                </div>
+                                                <input type="range" class="form-range" min="0" max="100" value="50" id="customRange4">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="">
+                                                <label for="exampleFormControlInput1" class="form-label fw-bold mb-1 text-body-secondary">Percentage of Work that is Repetitive</label>
+                                                <select class="form-select-sm form-select">
+                                                    <option>Medium (40%)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div>
+                                                <div class="mb-1 d-flex align-items-center justify-content-between">
+                                                    <label for="customRange3" class="form-label mb-0 fw-bold text-body-secondary">Hours Saved Per Week</label>
+                                                    <span class="fw-bold text-body-secondary"><output for="customRange3" id="rangeValue3" aria-hidden="true"></output> hours</span>
+                                                </div>
+                                                <input type="range" class="form-range" min="0" max="10" step="0.5" value="7" id="customRange3">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div>
+                                                <div class="mb-1 d-flex align-items-center justify-content-between">
+                                                    <label for="customRange5" class="form-label mb-0 fw-bold text-body-secondary">Time Reinvested into Productive Work</label>
+                                                    <span class="fw-bold text-body-secondary"><output for="customRange5" id="rangeValue5" aria-hidden="true"></output> %</span>
+                                                </div>
+                                                <input type="range" class="form-range" min="0" max="100" step="5" value="25" id="customRange5">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="bg-white shadow rounded-3 border p-3 h-100">
+                                <div class="d-flex align-items-center justify-content-between">
+                                    <h5 class="mb-0">Total estimated messages</h5>
+                                    <span class="h5 ms-2 text-info">480,073.52</span>
+                                </div>
+                                <hr />
+                                <div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <h6 class="mb-0 ">Messages driven by knowledge</h6>
+                                        <span class="h6 text-info ms-2">
+                                            105,000
+                                        </span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <p class="mb-0 text-body-secondary">Messages consumed for tenant graph grounding (10 messages) + generative answers (2 messages)</p>
+                                        <span class="h6 text-dark ms-2">90,000</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <p class="mb-0 text-body-secondary">Messages consumed for non-tenant graph grounding (2 messages): Dataverse, web, files</p>
+                                        <span class="h6 text-dark ms-2">
+                                            15,000
+                                        </span>
+                                    </div>
+
+                                </div>
+                                <hr />
+                                <div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <h6 class="mb-0 ">Messages driven by actions and topics</h6>
+                                        <span class="h6 text-info ms-2">375,006.76</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <p class="mb-0 text-body-secondary">
+                                            Number of messages that charge for actions and topics
+                                        </p>
+                                        <span class="h6 text-dark ms-2">375,000</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <p class="mb-0 text-body-secondary">Number of messages that charge for agent flows</p>
+                                        <span class="h6 text-dark ms-2">6.76</span>
+                                    </div>
+
+                                </div>
+                                <hr />
+                                <div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <h6 class="mb-0 ">Messages driven by agent autonomous triggers</h6>
+                                        <span class="h6 text-info ms-2">
+                                            66.76
+                                        </span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between">
+                                        <p class="mb-0 text-body-secondary">Number of messages that charge trigger 1</p>
+                                        <span class="h6 text-dark ms-2">66.76</span>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <h6 class="mb-0 ">Messages driven by optional modifiers</h6>
+                                        <span class="h6 text-info ms-2">0</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <h6 class="mb-0 ">Basic GPT-4o mini</h6>
+                                        <span class="h6 text-dark ms-2">0</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <p class="mb-0 text-body-secondary">
+                                            1 message per every 10 responses
+                                        </p>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <h6 class="mb-0 ">Standard GPT-4o</h6>
+                                        <span class="h6 text-dark ms-2">0</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <p class="mb-0 text-body-secondary">
+                                            15 messages per every 10 responses
+                                        </p>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <h6 class="mb-0 ">Premium GPT-o1</h6>
+                                        <span class="h6 text-dark ms-2">0</span>
+                                    </div>
+                                    <div class="d-flex align-items-center justify-content-between mb-2">
+                                        <p class="mb-0 text-body-secondary">
+                                            100 messages per every 10 responses
+                                        </p>
+                                    </div>
+
+                                </div>
+                                <hr />
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mt-4">
+                                <p class="text-body-secondary">
+                                    The Copilot Studio estimator is not a binding offer nor a guarantee of the final cost or availability of the product. This estimate should be regarded only as guidance and not incorporated into a contractual agreement. The actual amount of message consumption and associated cost may vary depending on the region, availability, workload usage, number of users, and other factors. You may contact your UnifyCloud representative before making any customer recommendations or purchase decisions. UnifyCloud reserves the right to modify or discontinue the Copilot Studio estimator at any time without notice.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Main Loader-->
+    <div id="MainLoader" style="display:none;">
+        <div>
+
+            <div class="d-flex justify-content-center p-2">
+                <div class="spinner-border text-white" style="width: 5rem; height: 5rem;" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+            </div>
+            <span class="text-white fw-normal">Please wait...</span>
+        </div>
+    </div>
+
+    <!--Toast-->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer" style="z-index: 9999"></div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- bootstrap@5.3.2 -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--<script src="~/content/assets/libs/datatable/datatables.min.js"></script>-->
+    <!-- Buttons Extension -->
+    <!--<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>-->
+    <!-- JSZip (Required for Excel Export) -->
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>-->
+    <!-- HTML5 Export Buttons -->
+    <!--<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>-->
+    <script>
+        // This is an example script, please modify as needed
+        const rangeInput = document.getElementById('customRange4');
+        const rangeOutput = document.getElementById('rangeValue');
+
+        // Set initial value
+        rangeOutput.textContent = rangeInput.value;
+
+        rangeInput.addEventListener('input', function () {
+            rangeOutput.textContent = this.value;
+        });
+    </script>
+    <script>
+        // This is an example script, please modify as needed
+        const rangeInput3 = document.getElementById('customRange3');
+        const rangeOutput3 = document.getElementById('rangeValue3');
+
+        // Set initial value
+        rangeOutput3.textContent = rangeInput3.value;
+
+        rangeInput3.addEventListener('input', function () {
+            rangeOutput3.textContent = this.value;
+        });
+    </script>
+    <script>
+        // This is an example script, please modify as needed
+        const rangeInput5 = document.getElementById('customRange3');
+        const rangeOutput5 = document.getElementById('rangeValue3');
+
+        // Set initial value
+        rangeOutput5.textContent = rangeInput5.value;
+
+        rangeInput5.addEventListener('input', function () {
+            rangeOutput5.textContent = this.value;
+        });
+    </script>
+</body>
+</html>

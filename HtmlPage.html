@@ -1,0 +1,551 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copilot Agent Estimator</title>
+    <style>
+        :root {
+            --primary: #0078d4;
+            --primary-light: #e3f2fd;
+            --secondary: #605e5c;
+            --accent: #d83b01;
+            --light-gray: #f3f2f1;
+            --mid-gray: #edebe9;
+            --dark-gray: #323130;
+            --white: #ffffff;
+            --border: #8a8886;
+            --success: #107c10;
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --focus-shadow: 0 0 0 4px rgba(0, 120, 212, 0.3);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--light-gray);
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--white);
+            padding: 30px 20px;
+            border-bottom: 1px solid var(--mid-gray);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: var(--primary);
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: var(--dark-gray);
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--mid-gray);
+        }
+
+        h3 {
+            font-size: 18px;
+            color: var(--secondary);
+            margin: 20px 0 15px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+
+        .intro {
+            font-size: 16px;
+            max-width: 800px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 4px;
+            box-shadow: var(--card-shadow);
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--dark-gray);
+        }
+
+        .form-hint {
+            font-size: 14px;
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .input-control {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+
+            .input-control:focus {
+                outline: none;
+                border-color: var(--primary);
+                box-shadow: var(--focus-shadow);
+            }
+
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 15px 0;
+        }
+
+        .radio-option, .checkbox-option {
+            display: flex;
+            align-items: center;
+        }
+
+            .radio-option input, .checkbox-option input {
+                margin-right: 8px;
+                width: 18px;
+                height: 18px;
+            }
+
+            .radio-option label, .checkbox-option label {
+                font-weight: normal;
+            }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--mid-gray);
+            margin: 25px 0;
+        }
+
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+            .summary-table th {
+                text-align: left;
+                padding: 12px 15px;
+                background: var(--primary-light);
+                color: var(--dark-gray);
+                font-weight: 600;
+            }
+
+            .summary-table td {
+                padding: 12px 15px;
+                border-bottom: 1px solid var(--mid-gray);
+            }
+
+            .summary-table tr:last-child td {
+                border-bottom: none;
+            }
+
+        .highlight {
+            background-color: var(--primary-light);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary);
+        }
+
+        .disclaimer {
+            font-size: 14px;
+            color: var(--secondary);
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 30px;
+        }
+
+        .section-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 15px 0;
+        }
+
+            .section-toggle h2 {
+                margin: 0;
+                border: none;
+                padding: 0;
+            }
+
+        .section-content {
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: background 0.2s ease;
+        }
+
+            .btn:hover {
+                background: #106ebe;
+            }
+
+        .required::after {
+            content: " *";
+            color: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Copilot Agent Estimator</h1>
+            <p class="intro">This tool helps you <strong>plan, calculate, and visualize</strong> the resources needed for Copilot Agents. Adjust inputs, explore different scenarios, and instantly see how your setup impacts cost, performance, and efficiency.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2>Copilot ROI Calculator</h2>
+
+            <div class="form-group">
+                <label class="form-label">Estimator type</label>
+                <p class="form-hint">Configure monthly agent message estimation in two ways</p>
+                <div class="radio-group">
+                    <div class="radio-option">
+                        <input type="radio" id="estimate-telemetry" name="estimator-type" checked>
+                        <label for="estimate-telemetry">An estimate based on common telemetry data and assumptions</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="estimate-manual" name="estimator-type">
+                        <label for="estimate-manual">An estimate based on manual entries for my agent</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-toggle">
+                <h2>Agent Traffic</h2>
+                <span>▼</span>
+            </div>
+            <div class="section-content">
+                <p class="form-hint">Agent traffic quantifies the activity an agent supports by assessing the number of end users accessing the agent and their monthly engagement frequency.</p>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label required">How many users?</label>
+                        <input type="number" class="input-control" placeholder="e.g. 1000" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label required">On average, how many times per month will your users interact with your agent?</label>
+                        <input type="number" class="input-control" placeholder="e.g. 30" min="0">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-toggle">
+                <h2>Agent Type</h2>
+                <span>▼</span>
+            </div>
+            <div class="section-content">
+                <p class="form-hint">Agent type specifies whether the agent is deployed internally for employee interactions or externally for customer and partner conversations. Deployment location impacts usage trends, aiding in accurate consumption forecasting.</p>
+
+                <div class="form-group">
+                    <label class="form-label required">What is your agent type?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="employee-facing" name="agent-type" checked>
+                            <label for="employee-facing">Employee facing agent</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="customer-facing" name="agent-type">
+                            <label for="customer-facing">Customer or partner facing agent</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Do you have users with M365 Copilot licenses?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="m365-yes" name="m365-licenses">
+                            <label for="m365-yes">Yes</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="m365-no" name="m365-licenses" checked>
+                            <label for="m365-no">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">How many users with M365 Copilot licenses?</label>
+                    <input type="number" class="input-control" placeholder="e.g. 100" min="0">
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-toggle">
+                <h2>Agent Orchestration</h2>
+                <span>▼</span>
+            </div>
+            <div class="section-content">
+                <p class="form-hint">Orchestration involves managing and coordinating an agent's capabilities and actions to effectively respond to user queries and perform tasks.</p>
+
+                <div class="form-group">
+                    <label class="form-label required">What type of orchestration will you require?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="orchestration-generative" name="orchestration-type" checked>
+                            <label for="orchestration-generative">Generative</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="orchestration-classic" name="orchestration-type">
+                            <label for="orchestration-classic">Classic</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-toggle">
+                <h2>Agent Knowledge</h2>
+                <span>▼</span>
+            </div>
+            <div class="section-content">
+                <p class="form-hint">Knowledge sources enable agents to provide relevant information and insights. Published agents use configured knowledge sources to ground their responses.</p>
+
+                <div class="form-group">
+                    <label class="form-label required">On average, how many times per month will your users interact with your agent?</label>
+                    <input type="number" class="input-control" placeholder="e.g. 50" min="0">
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-toggle">
+                <h2>Agent Actions and Topics</h2>
+                <span>▼</span>
+            </div>
+            <div class="section-content">
+                <p class="form-hint">Help agents answer a query, execute workflows, connect to external systems, or provide topic-specific guidance.</p>
+
+                <div class="form-group">
+                    <label class="form-label">Percentage of consumption from topics</label>
+                    <input type="number" class="input-control" value="100" min="0" max="100">
+                    <p class="form-hint">Enter a value between 0 and 100</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">How many agent flows have you configured for your agent (either within a topic or standalone agent action)?</label>
+                        <input type="number" class="input-control" placeholder="e.g. 2" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">How often will these flows run per month?</label>
+                        <input type="number" class="input-control" placeholder="e.g. 2" min="0">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="section-toggle">
+                <h2>Agent Optional Modifiers</h2>
+                <span>▼</span>
+            </div>
+            <div class="section-content">
+                <p class="form-hint">These features are not required for agents but drive additional message consumption.</p>
+
+                <div class="form-group">
+                    <label class="form-label">Will you use prompt tools?</label>
+                    <div class="radio-group">
+                        <div class="radio-option">
+                            <input type="radio" id="prompt-yes" name="prompt-tools">
+                            <label for="prompt-yes">Yes</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="prompt-no" name="prompt-tools" checked>
+                            <label for="prompt-no">No</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Estimation Results</h2>
+
+            <h3>Total estimated messages</h3>
+            <table class="summary-table">
+                <tr>
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Messages driven by knowledge</td>
+                    <td>480,073.52</td>
+                </tr>
+                <tr>
+                    <td>Messages consumed for tenant graph grounding (10 messages) + generative answers (2 messages)</td>
+                    <td>105,000</td>
+                </tr>
+                <tr>
+                    <td>Messages consumed for non-tenant graph grounding (2 messages): Dataverse, web, files</td>
+                    <td>90,000</td>
+                </tr>
+                <tr>
+                    <td>Messages driven by actions and topics</td>
+                    <td>375,006.76</td>
+                </tr>
+                <tr>
+                    <td>Number of messages that charge for actions and topics</td>
+                    <td>375,000</td>
+                </tr>
+                <tr>
+                    <td>Number of messages that charge for agent flows</td>
+                    <td>6.76</td>
+                </tr>
+            </table>
+
+            <h3>Messages driven by agent autonomous triggers</h3>
+            <table class="summary-table">
+                <tr>
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Messages driven by optimal modifiers</td>
+                    <td>66.76</td>
+                </tr>
+                <tr>
+                    <td>Number of messages that charge trigger 1</td>
+                    <td>66.76</td>
+                </tr>
+            </table>
+
+            <h3>Messages driven by optional modifiers</h3>
+            <table class="summary-table">
+                <tr>
+                    <th>Description</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Basic GPT-4o mini</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>1 message per every 10 responses</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Standard GPT-4o</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>15 messages per every 10 responses</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>Premium GPT-o1</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>100 messages per every 10 responses</td>
+                    <td>0</td>
+                </tr>
+            </table>
+
+            <div class="highlight">
+                <p><strong>Note:</strong> The values above are estimates based on your inputs. Actual consumption may vary.</p>
+            </div>
+
+            <button class="btn">Export Estimate</button>
+            <button class="btn" style="background: var(--success);">Save Configuration</button>
+        </div>
+
+        <div class="disclaimer">
+            <p><strong>Disclaimer:</strong> The Copilot Studio estimator is not a binding offer nor a guarantee of the final cost or availability of the product. This estimate should be regarded only as guidance and not incorporated into a contractual agreement. The actual amount of message consumption and associated cost may vary depending on the region, availability, workload usage, number of users, and other factors. You may contact your UnifyCloud representative before making any customer recommendations or purchase decisions. UnifyCloud reserves the right to modify or discontinue the Copilot Studio estimator at any time without notice.</p>
+        </div>
+    </div>
+
+    <script>
+        // Add toggle functionality for sections
+        document.querySelectorAll('.section-toggle').forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('span');
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    icon.textContent = '▼';
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.textContent = '▲';
+                }
+            });
+        });
+
+        // Initialize all sections as expanded
+        document.querySelectorAll('.section-content').forEach(content => {
+            content.style.maxHeight = content.scrollHeight + "px";
+        });
+    </script>
+</body>
+</html>
